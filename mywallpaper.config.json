@@ -1,0 +1,15 @@
+{
+  "web": {
+    "command": "pnpm",
+    "args": [
+      "build"
+    ],
+    "outputs": [
+      "dist"
+    ],
+    "inputs": [
+      "src",
+      "assets"
+    ]
+  }
+}

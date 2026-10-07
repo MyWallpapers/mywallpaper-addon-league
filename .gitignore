@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.mywallpaper/
+public/__mywallpaper/
+*.log
+server/data/
+server/.env
+server/.env.*
+!server/.env.example
+server/secrets/

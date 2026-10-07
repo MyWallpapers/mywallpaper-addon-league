@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Profil League of Legends</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1 id="heading">Relier League of Legends</h1>
+      <p id="intro">Reliez votre compte Riot pour partager votre profil dans l’add-on League of Legends.</p>
+    </header>
+    <p id="status" class="notice" role="status">Vérification de la connexion…</p>
+    <section id="connect" hidden>
+      <h2>Vous gardez le contrôle</h2>
+      <p>Le profil peut afficher votre Riot ID, votre rang dans la file choisie, jusqu’à 10 parties classées récentes et, si Riot le signale, votre présence en partie, le champion et l’heure de début. Les statistiques détaillées d’une partie en cours ne sont pas disponibles via ces API.</p>
+      <form id="connect-form">
+        <fieldset id="connection-fields">
+          <label for="platform">Serveur League of Legends</label>
+          <select id="platform" name="platform">
+            <option value="br1">Brésil</option>
+            <option value="eun1">Europe Nord et Est</option>
+            <option value="euw1">Europe Ouest</option>
+            <option value="me1">Moyen-Orient</option>
+            <option value="jp1">Japon</option>
+            <option value="kr">Corée</option>
+            <option value="la1">Amérique latine Nord</option>
+            <option value="la2">Amérique latine Sud</option>
+            <option value="na1">Amérique du Nord</option>
+            <option value="oc1">Océanie</option>
+            <option value="tr1">Turquie</option>
+            <option value="ru">Russie</option>
+            <option value="sg2">Singapour</option>
+            <option value="tw2">Taïwan</option>
+            <option value="vn2">Vietnam</option>
+          </select>
+          <label for="queueId">File classée à afficher</label>
+          <select id="queueId" name="queueId">
+            <option value="420">Classée Solo / Duo</option>
+            <option value="440">Classée Flex</option>
+          </select>
+          <p class="secondary">Le service n’active que les plateformes dont les routes Riot nécessaires sont documentées et vérifiées.</p>
+          <label class="consent"><input id="consent" type="checkbox" required>
+            <span>J’autorise ce service à partager publiquement mon Riot ID, mon rang et mes statistiques récentes pour la file choisie, ainsi que les résumés de mes parties et ma présence en cours de partie si elle est disponible. Le lien peut être consulté par toute personne qui le possède, y compris depuis un add-on.</span>
+          </label>
+          <p class="secondary">Vous pourrez retirer cette autorisation ici à tout moment. Le service supprimera alors l’association et désactivera l’ancien lien ; les copies déjà enregistrées par un tiers ne peuvent pas être rappelées. Aucune donnée des autres participants n’est publiée.</p>
+          <button id="connect-button" type="submit">Continuer avec Riot</button>
+        </fieldset>
+      </form>
+    </section>
+    <section id="connected" hidden>
+      <h2 id="account-name">Profil connecté</h2>
+      <label for="profile-url">Lien de profil public</label>
+      <div class="copy-row"><input id="profile-url" type="url" readonly spellcheck="false"><button id="copy" type="button">Copier</button></div>
+      <p class="secondary">Collez ce lien dans le réglage « Public profile URL » de l’add-on. Il ne contient aucun identifiant de connexion ni secret Riot.</p>
+      <a id="profile-link" class="text-link" href="/">Voir les données partagées</a>
+      <div class="withdrawal"><button id="withdraw" class="secondary-button" type="button">Retirer le partage</button><p class="secondary">Votre lien cessera de fonctionner et l’association à votre compte sera supprimée.</p></div>
+    </section>
+    <section id="public-profile" hidden>
+      <h2 id="public-name">Profil League of Legends</h2>
+      <p id="queue-label" class="secondary"></p>
+      <dl class="statistics">
+        <div><dt>Rang</dt><dd id="rank">—</dd></div>
+        <div><dt>Victoires récentes</dt><dd id="winrate">—</dd></div>
+        <div><dt>K / D / A cumulés</dt><dd id="kda">—</dd></div>
+        <div><dt>Parties</dt><dd id="matches">—</dd></div>
+      </dl>
+      <p id="presence" class="secondary">Présence en partie inconnue.</p>
+      <p id="sample" class="secondary">Statistiques calculées à partir de 10 parties classées récentes au maximum dans la file choisie ; elles ne représentent pas toute la carrière.</p>
+      <a class="text-link" href="/">Gérer mon propre partage</a>
+    </section>
+    <footer>
+      <p id="operator" hidden></p>
+      <nav id="legal-links" aria-label="Informations légales" hidden><a id="privacy" href="/">Confidentialité</a><a id="terms" href="/">Conditions d’utilisation</a></nav>
+      <p>League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. This service is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties.</p>
+    </footer>
+  </main>
+</body>
+</html>

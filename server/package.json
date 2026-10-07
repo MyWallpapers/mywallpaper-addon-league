@@ -1,0 +1,13 @@
+{
+  "name": "league-of-legends-profile-service",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22.22.3 <23" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/main.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": { "jose": "^6.1.0" }
+}

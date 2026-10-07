@@ -1,0 +1,21 @@
+# Explicit activation overlay: use only after Riot approves this League service and its own RSO client.
+services:
+  league-profile-service:
+    environment:
+      PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:?Set the approved HTTPS origin}
+      RIOT_LEAGUE_RSO_APPROVED: "true"
+      RIOT_LEAGUE_RSO_CLIENT_ID: ${RIOT_LEAGUE_RSO_CLIENT_ID:?Set this service's approved RSO client ID}
+      RIOT_LEAGUE_RSO_CLIENT_SECRET_FILE: /run/secrets/riot_league_client_secret
+      RIOT_LEAGUE_API_KEY_FILE: /run/secrets/riot_league_api_key
+      OPERATOR_NAME: ${OPERATOR_NAME:?Set the actual service operator}
+      OPERATOR_CONTACT: ${OPERATOR_CONTACT:?Set the service contact}
+      PRIVACY_URL: ${PRIVACY_URL:?Set the published HTTPS privacy URL}
+      TERMS_URL: ${TERMS_URL:?Set the published HTTPS terms URL}
+      RIOT_LEAGUE_REQUESTS_PER_MINUTE: ${RIOT_LEAGUE_REQUESTS_PER_MINUTE:-60}
+      MAX_PROFILES: ${MAX_PROFILES:-1000}
+    secrets: [riot_league_client_secret, riot_league_api_key]
+secrets:
+  riot_league_client_secret:
+    file: ${RIOT_LEAGUE_RSO_CLIENT_SECRET_FILE:?Set the private League RSO secret file}
+  riot_league_api_key:
+    file: ${RIOT_LEAGUE_API_KEY_FILE:?Set the private League API key file}

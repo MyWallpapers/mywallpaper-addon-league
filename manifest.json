@@ -1,0 +1,179 @@
+{
+  "runtime": "canvas-v1",
+  "name": "League of Legends Widgets",
+  "description": "Five configurable League of Legends widgets with an independent Riot profile service. Real data requires approved Riot production and RSO access.",
+  "version": "0.1.0",
+  "entry": "dist/assets/addon.js",
+  "thumbnail": "assets/thumbnail.png",
+  "deviceSettingsVersion": "1",
+  "ui": {
+    "pointerEvents": "none"
+  },
+  "settings": [
+    {
+      "id": "presentation",
+      "type": "section",
+      "label": "Presentation"
+    },
+    {
+      "id": "layout",
+      "type": "select",
+      "label": "Layout",
+      "parent": "presentation",
+      "scope": "layer",
+      "default": "rank",
+      "options": [
+        {
+          "label": "Rank + profile",
+          "value": "rank"
+        },
+        {
+          "label": "Rank overview",
+          "value": "overview"
+        },
+        {
+          "label": "Current session",
+          "value": "session"
+        },
+        {
+          "label": "Icon rings",
+          "value": "rings"
+        },
+        {
+          "label": "Recent history",
+          "value": "history"
+        }
+      ]
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language",
+      "parent": "presentation",
+      "scope": "layer",
+      "default": "auto",
+      "options": [
+        {
+          "label": "Automatic",
+          "value": "auto"
+        },
+        {
+          "label": "Français",
+          "value": "fr"
+        },
+        {
+          "label": "English",
+          "value": "en"
+        }
+      ]
+    },
+    {
+      "id": "showChange",
+      "type": "boolean",
+      "label": "Last LP change",
+      "parent": "presentation",
+      "scope": "layer",
+      "default": true
+    },
+    {
+      "id": "appearance",
+      "type": "section",
+      "label": "Appearance"
+    },
+    {
+      "id": "accentColor",
+      "label": "Accent",
+      "type": "color",
+      "parent": "appearance",
+      "scope": "layer",
+      "default": "#32e5a5"
+    },
+    {
+      "id": "backgroundColor",
+      "label": "Background",
+      "type": "color",
+      "parent": "appearance",
+      "scope": "layer",
+      "default": "#172027"
+    },
+    {
+      "id": "textColor",
+      "label": "Text",
+      "type": "color",
+      "parent": "appearance",
+      "scope": "layer",
+      "default": "#f3f6fc"
+    },
+    {
+      "id": "opacity",
+      "label": "Panel opacity",
+      "type": "range",
+      "parent": "appearance",
+      "scope": "layer",
+      "min": 0,
+      "max": 1,
+      "step": 0.05,
+      "default": 0.8
+    },
+    {
+      "id": "blurAmount",
+      "label": "Glass blur",
+      "type": "range",
+      "parent": "appearance",
+      "scope": "layer",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "id": "cornerRadius",
+      "label": "Corner radius",
+      "type": "range",
+      "parent": "appearance",
+      "scope": "layer",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "id": "data",
+      "type": "section",
+      "label": "Data connection",
+      "description": "Link your Riot account on the separate service portal, then paste its public profile URL below. No Riot password, session cookie or API key is stored in this widget."
+    },
+    {
+      "id": "profileUrl",
+      "type": "string",
+      "label": "Public profile URL",
+      "parent": "data",
+      "scope": "device",
+      "default": "",
+      "description": "Public link ending in /p/your-profile-id. Stored only on this device. Leave empty to use the optional service provider."
+    },
+    {
+      "id": "reconnect",
+      "type": "button",
+      "label": "Retry data connection",
+      "parent": "data",
+      "buttonLabel": "Reconnect"
+    },
+    {
+      "id": "legal",
+      "type": "section",
+      "label": "Riot Games notice",
+      "description": "League of Legends Widgets is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games and all associated properties are trademarks or registered trademarks of Riot Games, Inc."
+    }
+  ],
+  "services": {
+    "provides": {},
+    "requires": {
+      "league": {
+        "version": 1,
+        "contract": "mywallpaper/league-player",
+        "optional": true
+      }
+    }
+  }
+}
